@@ -22,3 +22,4 @@ Nesse pequeno teste, vamos testar se vocês é bom no que faz! Agora, se você �
 
 Vocês deverá implementar a tela a seguir.
 
+![Tela](assets/img/test-developers.png)
