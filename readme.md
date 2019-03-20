@@ -23,3 +23,19 @@ Nesse pequeno teste, vamos testar se vocês é bom no que faz! Agora, se você �
 Vocês deverá implementar a tela a seguir.
 
 ![Tela](assets/img/test-developers.png)
+
+## User stories
+
+01. Como um usuário, quero exibir um documento.
+02. Como um usuário, quero alterar a ordem na qual as assinaturas de um documento são exibidas.
+03. Como um usuário, quero editar os campos de uma assinatura.
+04. Como um usuário, quero excluir uma assinatura de um documento.
+05. Como um usuário, quero inserir uma nova assinatura em um documento.
+
+## Issues
+
+Cada uma das user stories está relacionada a uma issue que contém o detalhamento dos requisitos.
+
+## Arquitetura da solução
+
+
