@@ -1,4 +1,4 @@
-Bem vindo, candidato!
+# Bem vindo, candidato!
 
 Para nós da Doc.Space é muito legal saber que vocês está interessado em trabalhar conosco!
 
@@ -8,7 +8,7 @@ Esperamos que vocês tenha sucesso neste pequeno teste que preparamos.
 
 Vamos lá!
 
-# Qual o objetivo desse teste
+# Qual o objetivo desse teste?
 
 Bem, na Doc.Space, mais do que a experiência, valorizamos duas características nas pessoas que integram nosso time:
 1. Ser do bem!
