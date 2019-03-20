@@ -1,6 +1,6 @@
 # Bem vindo, candidato!
 
-Para nós da Doc.Space é muito legal saber que vocês está interessado em trabalhar conosco!
+Para nós da Doc.Space é muito legal saber que você está interessado em trabalhar conosco!
 
 Somos uma startup. Cultivamos o espírito de liberdade e da busca constante pela inovação como forma de tornar as pessoas mais felizes, pois acreditamos que ter um propósito é essencial para uma startup. Assumimos compromissos e abraçamos os riscos pois acreditamos na nossa capacidade, que vem da união de nosso time e da comunhão de nossos propósitos.
 
