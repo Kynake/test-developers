@@ -18,6 +18,7 @@ Assim, não interessa se vocês conhece todas as tecnologias que existem... Se n
 
 Nesse pequeno teste, vamos testar se vocês é bom no que faz! Agora, se você é do bem, descobriremos pessoalmente... 😉
 
-# 
+# Qual é o teste?
 
+Vocês deverá implementar a tela a seguir.
 
