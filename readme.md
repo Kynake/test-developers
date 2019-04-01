@@ -26,16 +26,24 @@ Vocês deverá implementar a tela a seguir.
 
 ## User stories
 
-01. Como um usuário, quero exibir um documento.
-02. Como um usuário, quero alterar a ordem na qual as assinaturas de um documento são exibidas.
-03. Como um usuário, quero editar os campos de uma assinatura.
-04. Como um usuário, quero excluir uma assinatura de um documento.
-05. Como um usuário, quero inserir uma nova assinatura em um documento.
-
-## Issues
-
 Cada uma das user stories está relacionada a uma issue que contém o detalhamento dos requisitos.
+
+[01. Como um usuário, quero listar meus documentos.](../../issues/6)
+
+[02. Como um usuário, quero exibir um documento.](../../issues/1)
+
+[03. Como um usuário, quero alterar a ordem na qual as assinaturas de um documento são exibidas.](../../issues/2)
+
+[04. Como um usuário, quero editar os campos de uma assinatura.](../../issues/3)
+
+[05. Como um usuário, quero excluir uma assinatura de um documento.](../../issues/4)
+
+[06. Como um usuário, quero inserir uma nova assinatura em um documento.](../../issues/5)
+
 
 ## Arquitetura da solução
 
+A solução deve ser implementada de acordo com o seguinte diagrama de componentes simplificado:
+
+![Arquitetura](assets/img/arquitetura.png)
 
