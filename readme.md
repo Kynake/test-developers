@@ -30,15 +30,15 @@ Cada uma das user stories está relacionada a uma issue que contém o detalhamen
 
 [01. Como um usuário, quero listar meus documentos.](../../issues/6)
 
-[02. Como um usuário, quero exibir um documento.](#1)
+[02. Como um usuário, quero exibir um documento.](../../issues/1)
 
-[03. Como um usuário, quero alterar a ordem na qual as assinaturas de um documento são exibidas.](#2)
+[03. Como um usuário, quero alterar a ordem na qual as assinaturas de um documento são exibidas.](../../issues/2)
 
-[04. Como um usuário, quero editar os campos de uma assinatura.](#3)
+[04. Como um usuário, quero editar os campos de uma assinatura.](../../issues/3)
 
-[05. Como um usuário, quero excluir uma assinatura de um documento.](#4)
+[05. Como um usuário, quero excluir uma assinatura de um documento.](../../issues/4)
 
-[06. Como um usuário, quero inserir uma nova assinatura em um documento.](#5)
+[06. Como um usuário, quero inserir uma nova assinatura em um documento.](../../issues/5)
 
 
 ## Arquitetura da solução
