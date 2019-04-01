@@ -28,7 +28,7 @@ Vocês deverá implementar a tela a seguir.
 
 Cada uma das user stories está relacionada a uma issue que contém o detalhamento dos requisitos.
 
-[01. Como um usuário, quero listar meus documentos.](/issues/6)
+[01. Como um usuário, quero listar meus documentos.](Doc-Space/test-developers/issues/6)
 
 [02. Como um usuário, quero exibir um documento.](#1)
 
