@@ -29,11 +29,17 @@ Vocês deverá implementar a tela a seguir.
 Cada uma das user stories está relacionada a uma issue que contém o detalhamento dos requisitos.
 
 [01. Como um usuário, quero listar meus documentos.](#6)
+
 [02. Como um usuário, quero exibir um documento.](#1)
+
 [03. Como um usuário, quero alterar a ordem na qual as assinaturas de um documento são exibidas.](#2)
+
 [04. Como um usuário, quero editar os campos de uma assinatura.](#3)
+
 [05. Como um usuário, quero excluir uma assinatura de um documento.](#4)
+
 [06. Como um usuário, quero inserir uma nova assinatura em um documento.](#5)
+
 
 ## Arquitetura da solução
 
