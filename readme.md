@@ -43,5 +43,7 @@ Cada uma das user stories está relacionada a uma issue que contém o detalhamen
 
 ## Arquitetura da solução
 
+A solução deve ser implementada de acordo com o seguinte diagrama de componentes simplificado:
 
+[Arquitetura](assets/img/arquitetura.png)
 
