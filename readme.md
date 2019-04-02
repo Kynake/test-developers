@@ -14,9 +14,9 @@ Bem, na Doc.Space, mais do que a experiência, valorizamos duas características
 1. Ser do bem!
 2. Ser bom no que faz!
 
-Assim, não interessa se vocês conhece todas as tecnologias que existem... Se não fores do bem e bom no que fazes, de nada adiantará. Gostamos de trabalhar com pessoas do bem, que consigam manter nosso time coeso e motivado. E com pessoas boas no que fazem, o que inclui aprender coisas novas e saber aplicar esses novos conhecimentos.
+Assim, não interessa se você conhece todas as tecnologias que existem... Se não fores do bem e bom no que fazes, de nada adiantará. Gostamos de trabalhar com pessoas do bem, que consigam manter nosso time coeso e motivado. E com pessoas boas no que fazem, o que inclui aprender coisas novas e saber aplicar esses novos conhecimentos.
 
-Nesse pequeno teste, vamos testar se vocês é bom no que faz! Agora, se você é do bem, descobriremos pessoalmente... 😉
+Nesse pequeno teste, vamos testar se você é bom no que faz! Agora, se você é do bem, descobriremos pessoalmente... 😉
 
 # Qual é o teste?
 
@@ -46,4 +46,9 @@ Cada uma das user stories está relacionada a uma issue que contém o detalhamen
 A solução deve ser implementada de acordo com o seguinte diagrama de componentes simplificado:
 
 ![Arquitetura](assets/img/arquitetura.png)
+
+
+# E como eu faço para começar o teste?
+
+Para desenvolver uma solução para o teste, basta dar um _fork_ neste repositório e colocar a mão na massa! Quando você estiver com tudo pronto, basta fazer um _pull request_ para este repositório. 
 
