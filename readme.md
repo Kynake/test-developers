@@ -50,5 +50,5 @@ A solução deve ser implementada de acordo com o seguinte diagrama de component
 
 # E como eu faço para começar o teste?
 
-Para desenvolver uma solução para o teste, basta dar um _fork_ neste repositório e colocar a mão na massa! Quando você estiver com tudo pronto, basta fazer um _pull request_ para este repositório. 
+Para desenvolver uma solução para o teste, basta dar um _fork_ neste repositório e colocar a mão na massa! Quando você estiver com tudo pronto, basta nos enviar um e-mail avisando com o link para o _fork_. 
 
