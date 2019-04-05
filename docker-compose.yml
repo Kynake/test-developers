@@ -2,14 +2,22 @@ version: '2'
 services:
   database:
     container_name: database
-    image: postgres:latest
+    image: database:latest
+    build:
+      context: database
+      dockerfile: Dockerfile
+    expose:
+      - "5600"
     ports:
       - "5600:5432"
     environment:
-      - POSTGRES_USER=postgres
+      - POSTGRES_USER=docker
+      - POSTGRES_DB=devtest
       - POSTGRES_PASSWORD=senha
+    networks: 
+      - devtest-network
     # volumes:
-    #  - .\database\data:/var/lib/postgresql/data
+    #  - ./database/data:/var/lib/postgresql/data
 
   backend:
     container_name: backend
@@ -19,17 +27,23 @@ services:
     image: backend:latest
     depends_on:
       - "database"
+    expose:
+      - "5500"
     ports:
       - "5500:80"
+    networks: 
+      - devtest-network
     # command: ["php", "-S", "0.0.0.0:4000", "test.php"]
-
-  frontend:
-    container_name: frontend
-    build:
-      context: test-dev-front
-      dockerfile: Dockerfile
-    image: fronted:latest
-    depends_on:
-      - "backend"
-    ports:
-      - "80:80"
+    
+  # frontend:
+  #   container_name: frontend
+  #   build:
+  #     context: test-dev-front
+  #     dockerfile: Dockerfile
+  #   image: frontend:latest
+  #   depends_on:
+  #     - "backend"
+  #   ports:
+  #     - "80:80"
+  #   networks: 
+  #     - devtest-network
