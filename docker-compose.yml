@@ -2,10 +2,7 @@ version: '2'
 services:
   database:
     container_name: database
-    image: database:latest
-    build:
-      context: database
-      dockerfile: Dockerfile
+    image: postgres:latest
     expose:
       - "5600"
     ports:
@@ -16,24 +13,22 @@ services:
       - POSTGRES_PASSWORD=senha
     networks: 
       - devtest-network
-    # volumes:
-    #  - ./database/data:/var/lib/postgresql/data
+    volumes:
+     - ./database:/docker-entrypoint-initdb.d
 
   backend:
     container_name: backend
-    build:
-      context: test-dev-back
-      dockerfile: Dockerfile
-    image: backend:latest
+    image: phalconphp/php-apache:ubuntu-16.04
     depends_on:
       - "database"
     expose:
       - "5500"
     ports:
       - "5500:80"
+    volumes:
+     - ./test-dev-back:/app
     networks: 
       - devtest-network
-    # command: ["php", "-S", "0.0.0.0:4000", "test.php"]
     
   # frontend:
   #   container_name: frontend
@@ -47,3 +42,6 @@ services:
   #     - "80:80"
   #   networks: 
   #     - devtest-network
+
+networks: 
+  devtest-network:
