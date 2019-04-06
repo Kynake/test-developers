@@ -16,6 +16,7 @@ class Signatures extends Model {
   public $issuer;
   public $timestamp;
   public $ordering;
+  public $id_document;
 
   public function initialize() {
     $this->belongsTo('id_document', 'Documents', 'id');
