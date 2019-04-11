@@ -47,6 +47,7 @@ $app->get(
     // Operation to fetch all the documents
     $response = new Response();
     $response->setHeader("Content-Type", "application/json");
+    $response->setHeader('Access-Control-Allow-Origin', '*');
 
     $phql = 'SELECT * FROM Docspace\Documents ORDER BY name';
     $documents = $app->modelsManager->executeQuery($phql);
@@ -77,6 +78,7 @@ $app->get(
     // Operation to fetch document with id $id
     $response = new Response();
     $response->setHeader("Content-Type", "application/json");
+    $response->setHeader('Access-Control-Allow-Origin', '*');
 
     $sqldocs = 'SELECT * FROM Docspace\Documents  WHERE id          = :id:';
     $sqlsigs = 'SELECT * FROM Docspace\Signatures WHERE id_document = :id: ORDER BY ordering, name';
@@ -122,6 +124,7 @@ $app->get(
     // Operation to fetch all the signatures
     $response = new Response();
     $response->setHeader("Content-Type", "application/json");
+    $response->setHeader('Access-Control-Allow-Origin', '*');
 
     $phql = 'SELECT * FROM Docspace\Signatures ORDER BY id_document, ordering';
     $signatures = $app->modelsManager->executeQuery($phql);
@@ -154,6 +157,7 @@ $app->get(
     // Operation to fetch signature with id $id
     $response = new Response();
     $response->setHeader("Content-Type", "application/json");
+    $response->setHeader('Access-Control-Allow-Origin', '*');
 
     $sqlsigs = 'SELECT * FROM Docspace\Signatures WHERE id = :id:';
     $sqldocs = 'SELECT * FROM Docspace\Documents  WHERE id = :id_document:';
@@ -201,6 +205,7 @@ $app->post(
     
     $response = new Response();
     $response->setHeader("Content-Type", "application/json");
+    $response->setHeader('Access-Control-Allow-Origin', '*');
     
     $sqlsig = 'INSERT INTO Docspace\Signatures (name, issuer, timestamp, ordering, id_document) VALUES (:name:, :issuer:, :timestamp:, :ordering:, :id_document:)';
 
@@ -249,6 +254,7 @@ $app->put(
     
     $response = new Response();
     $response->setHeader("Content-Type", "application/json");
+    $response->setHeader('Access-Control-Allow-Origin', '*');
 
     $sqlsig = 'UPDATE Docspace\Signatures
                SET name = :name:, issuer = :issuer:, timestamp = :timestamp:, ordering = :ordering:, id_document = :id_document:
@@ -295,6 +301,7 @@ $app->delete(
     // Operation to delete a signature with id $id
     $response = new Response();
     $response->setHeader("Content-Type", "application/json");
+    $response->setHeader('Access-Control-Allow-Origin', '*');
     
     $sqlsig = 'DELETE FROM Docspace\Signatures WHERE id = :id:';
     $status = $app->modelsManager->executeQuery($sqlsig, ['id' => $id]);
