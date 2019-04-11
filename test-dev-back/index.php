@@ -97,13 +97,13 @@ $app->get(
 
     if(count($data) > 0) {
       $response->setJsonContent([
-        'status' => 'FOUND',
+        'status' => 'OK',
         'data'   => $data[0]
       ]);
     } else {
       $response->setJsonContent([
-        'status' => 'NOT-FOUND',
-        'data'   => (object) null
+        'status' => 'ERROR',
+        'data'   => 'Document not found'
       ]);
     }
 
@@ -178,13 +178,13 @@ $app->get(
       }
 
       $response->setJsonContent([
-        'status' => 'FOUND',
+        'status' => 'OK',
         'data'   => $data[0]
       ]);
     } else {
       $response->setJsonContent([
-        'status' => 'NOT-FOUND',
-        'data'   => (object) null
+        'status' => 'ERROR',
+        'data'   => 'Signature not found'
       ]);
     }
 
