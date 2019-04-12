@@ -154,15 +154,14 @@
 							"raw": "{\n\t\"id\": 1,\n    \"name\": \"Magavilha\",\n    \"issuer\": \"Empresa Certificadora 5\",\n    \"timestamp\": \"2019-04-11 00:13:24.386932\",\n    \"ordering\": 1,\n    \"id_document\": 1\n}"
 						},
 						"url": {
-							"raw": "localhost:5500/api/signatures/1",
+							"raw": "localhost:5500/api/signatures",
 							"host": [
 								"localhost"
 							],
 							"port": "5500",
 							"path": [
 								"api",
-								"signatures",
-								"1"
+								"signatures"
 							]
 						}
 					},

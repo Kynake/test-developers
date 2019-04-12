@@ -247,8 +247,8 @@ $app->post(
 
 // PUT signature
 $app->put(
-  '/api/signatures/{id:[0-9]+}',
-  function ($id) use ($app) {
+  '/api/signatures',
+  function () use ($app) {
     // Operation to update a signature with id $id
     $signature = $app->request->getJsonRawBody();
     
