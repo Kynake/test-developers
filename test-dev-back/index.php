@@ -3,14 +3,22 @@ use Phalcon\Exception;
 use Phalcon\Loader;
 use Phalcon\Mvc\Micro;
 use Phalcon\Di\FactoryDefault;
-use Phalcon\Db\Adapter\Pdo\Postgresql as PdoPostgresql;
+use Phalcon\Db\Adapter\Pdo\Postgresql;
 use Phalcon\Http\Response;
+
+function defaultResponse() {
+  $response = new Response();
+  $response->setHeader('Access-Control-Allow-Origin', '*');
+  $response->setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  $response->setHeader('Access-Control-Allow-Headers', "Origin, X-Requested-With, Content-Type, Accept, x-auth");
+  $response->setHeader("Content-Type", "application/json");
+
+  return $response;
+}
 
 // Use Loader() to autoload our model
 $loader = new Loader();
-
 $loader->registerNamespaces([ 'Docspace' => __DIR__ . '/models/' ]);
-
 $loader->register();
 
 $di = new FactoryDefault();
@@ -20,7 +28,7 @@ try{
   $di->set(
     'db',
     function () {
-      return new PdoPostgresql([
+      return new Postgresql([
         'host'     => 'database',
         'port'     => 5432,
         'dbname'   => 'devtest',
@@ -30,7 +38,7 @@ try{
     }
   );
 } catch(Exception $e) {
-    echo $e->getMessage(), PHP_EOL;
+  echo $e->getMessage(), PHP_EOL;
 }
 
 // Create and bind the DI to the application
@@ -45,9 +53,7 @@ $app->get(
   '/api/documents',
   function () use ($app) {
     // Operation to fetch all the documents
-    $response = new Response();
-    $response->setHeader("Content-Type", "application/json");
-    $response->setHeader('Access-Control-Allow-Origin', '*');
+    $response = defaultResponse();
 
     $phql = 'SELECT * FROM Docspace\Documents ORDER BY name';
     $documents = $app->modelsManager->executeQuery($phql);
@@ -76,9 +82,7 @@ $app->get(
   '/api/documents/{id:[0-9]+}',
   function ($id) use ($app) {
     // Operation to fetch document with id $id
-    $response = new Response();
-    $response->setHeader("Content-Type", "application/json");
-    $response->setHeader('Access-Control-Allow-Origin', '*');
+    $response = defaultResponse();
 
     $sqldocs = 'SELECT * FROM Docspace\Documents  WHERE id          = :id:';
     $sqlsigs = 'SELECT * FROM Docspace\Signatures WHERE id_document = :id: ORDER BY ordering, name';
@@ -122,10 +126,8 @@ $app->get(
   '/api/signatures',
   function () use ($app) {
     // Operation to fetch all the signatures
-    $response = new Response();
-    $response->setHeader("Content-Type", "application/json");
-    $response->setHeader('Access-Control-Allow-Origin', '*');
-
+    $response = defaultResponse();
+    
     $phql = 'SELECT * FROM Docspace\Signatures ORDER BY id_document, ordering';
     $signatures = $app->modelsManager->executeQuery($phql);
     $data = [];
@@ -155,10 +157,8 @@ $app->get(
   '/api/signatures/{id:[0-9]+}',
   function ($id) use ($app) {
     // Operation to fetch signature with id $id
-    $response = new Response();
-    $response->setHeader("Content-Type", "application/json");
-    $response->setHeader('Access-Control-Allow-Origin', '*');
-
+    $response = defaultResponse();
+    
     $sqlsigs = 'SELECT * FROM Docspace\Signatures WHERE id = :id:';
     $sqldocs = 'SELECT * FROM Docspace\Documents  WHERE id = :id_document:';
 
@@ -185,6 +185,7 @@ $app->get(
         'status' => 'OK',
         'data'   => $data[0]
       ]);
+
     } else {
       $response->setJsonContent([
         'status' => 'ERROR',
@@ -201,11 +202,9 @@ $app->post(
   '/api/signatures',
   function () use ($app) {
     // Operation to create a new signature
-    $signature = $app->request->getJsonRawBody();
+    $response = defaultResponse();
     
-    $response = new Response();
-    $response->setHeader("Content-Type", "application/json");
-    $response->setHeader('Access-Control-Allow-Origin', '*');
+    $signature = $app->request->getJsonRawBody();
     
     $sqlsig = 'INSERT INTO Docspace\Signatures (name, issuer, timestamp, ordering, id_document) VALUES (:name:, :issuer:, :timestamp:, :ordering:, :id_document:)';
 
@@ -236,8 +235,8 @@ $app->post(
       }
 
       $response->setJsonContent([
-        'status'   => 'ERROR',
-        'data' => $errors,
+        'status' => 'ERROR',
+        'data'   => $errors,
       ]);
     }
 
@@ -250,11 +249,9 @@ $app->put(
   '/api/signatures',
   function () use ($app) {
     // Operation to update a signature with id $id
-    $signature = $app->request->getJsonRawBody();
+    $response = defaultResponse();
     
-    $response = new Response();
-    $response->setHeader("Content-Type", "application/json");
-    $response->setHeader('Access-Control-Allow-Origin', '*');
+    $signature = $app->request->getJsonRawBody();
 
     $sqlsig = 'UPDATE Docspace\Signatures
                SET name = :name:, issuer = :issuer:, timestamp = :timestamp:, ordering = :ordering:, id_document = :id_document:
@@ -286,8 +283,8 @@ $app->put(
       }
 
       $response->setJsonContent([
-        'status'   => 'ERROR',
-        'data' => $errors,
+        'status' => 'ERROR',
+        'data'   => $errors,
       ]);
     }
 
@@ -299,9 +296,7 @@ $app->delete(
   '/api/signatures/{id:[0-9]+}',
   function ($id) use ($app) {
     // Operation to delete a signature with id $id
-    $response = new Response();
-    $response->setHeader("Content-Type", "application/json");
-    $response->setHeader('Access-Control-Allow-Origin', '*');
+    $response = defaultResponse();
     
     $sqlsig = 'DELETE FROM Docspace\Signatures WHERE id = :id:';
     $status = $app->modelsManager->executeQuery($sqlsig, ['id' => $id]);
@@ -318,16 +313,22 @@ $app->delete(
       $errors = [];
 
       foreach ($status->getMessages() as $message) {
-          $errors[] = $message->getMessage();
+        $errors[] = $message->getMessage();
       }
 
       $response->setJsonContent([
-        'status'   => 'ERROR',
-        'data' => $errors,
+        'status' => 'ERROR',
+        'data'   => $errors,
       ]);
     }
 
     return $response;
+  }
+);
+
+$app->notFound(
+  function () use ($app) {
+    return defaultResponse();
   }
 );
 
