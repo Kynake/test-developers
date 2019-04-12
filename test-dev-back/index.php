@@ -308,7 +308,8 @@ $app->delete(
 
     if ($status->success() === true) {
       $response->setJsonContent([
-        'status' => 'OK'
+        'status' => 'OK',
+        'data'   => 'Signature deleted'
       ]);
     } else {
       // Change the HTTP status
