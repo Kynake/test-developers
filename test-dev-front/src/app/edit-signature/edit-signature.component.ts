@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter }           from '@angular/core'
-import { FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
+import { FormGroup, FormBuilder, Validators }             from '@angular/forms'
+import * as moment                                        from 'moment'
 
 import { Signature } from '../models/signature.model';
 import { SignaturesService } from '../backend/signatures.service';
@@ -41,15 +42,20 @@ export class EditSignatureComponent implements OnInit {
   ngOnInit() {
     this.isLoading = true
 
+    moment.locale('pt-BR')
+
     const sig = this.signature
+    if(sig) {
+      sig.timestamp = moment(sig.timestamp).format('YYYY-MM-DD HH:mm:ss')
+    }
 
     //Cria inputs e Forms
     this.editForm = this.formBuilder.group({
-      id_document: this.formBuilder.control(sig? sig.id_document : this.id_document, [Validators.required]),
-      ordering:    this.formBuilder.control(sig? sig.ordering    : this.order,       [Validators.required]),
-      name:        this.formBuilder.control(sig? sig.name        : null,             [Validators.required]),
-      issuer:      this.formBuilder.control(sig? sig.issuer      : null,             [Validators.required]),
-      timestamp:   this.formBuilder.control(sig? sig.timestamp   : new Date(),       [Validators.required])
+      id_document: this.formBuilder.control(sig? sig.id_document      : this.id_document,                          [Validators.required]),
+      ordering:    this.formBuilder.control(sig? sig.ordering         : this.order,                                [Validators.required]),
+      name:        this.formBuilder.control(sig? sig.name             : null,                                      [Validators.required]),
+      issuer:      this.formBuilder.control(sig? sig.issuer           : null,                                      [Validators.required]),
+      timestamp:   this.formBuilder.control(moment(sig? sig.timestamp : new Date()).format('YYYY-MM-DD HH:mm:ss'), [Validators.required])
     })
 
     this.isEditing = !this.editForm.valid
