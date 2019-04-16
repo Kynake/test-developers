@@ -27,7 +27,6 @@ export class DocumentsListComponent implements OnInit {
 
   //Métodos
   async ngOnInit() {
-    console.log('ON DOCUMENTS LIST COMPONENT')
     this.isLoading = true
 
     let response: Response = await this.documents.getDocuments()

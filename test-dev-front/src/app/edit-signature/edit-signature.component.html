@@ -10,7 +10,7 @@
   </div>
 
   <div class="col-10" *ngIf="isEditing">
-    {{editForm.value | json}}
+    <!-- {{editForm.value | json}} -->
     <form novalidate [formGroup]="editForm">
       <p>Assinado por:</p>
       <h4><input formControlName="name" type="text"></h4>

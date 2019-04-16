@@ -21,7 +21,7 @@ export class SignaturesService {
     let apiResponse: APIResponse = await this.http
       .get<APIResponse>(`${APIPath}/signatures`).toPromise()
 
-    console.log('Signatures Service: GET Signatures response: ', apiResponse)
+    // console.log('Signatures Service: GET Signatures response: ', apiResponse)
 
     return {
       hasError: apiResponse.status !== 'OK',
@@ -33,7 +33,7 @@ export class SignaturesService {
     let apiResponse: APIResponse = await this.http
       .get<APIResponse>(`${APIPath}/signatures/${id}`).toPromise()
 
-    console.log('Signatures Service: GET Signature by ID response: ', apiResponse)
+    // console.log('Signatures Service: GET Signature by ID response: ', apiResponse)
 
     return {
       hasError: apiResponse.status !== 'OK',
@@ -48,7 +48,7 @@ export class SignaturesService {
     let apiResponse: APIResponse = await this.http
       .post<APIResponse>(`${APIPath}/signatures`, sig, { headers: headers }).toPromise()
 
-    console.log('Signatures Service: POST Signature response: ', apiResponse)
+    // console.log('Signatures Service: POST Signature response: ', apiResponse)
 
     return {
       hasError: apiResponse.status !== 'OK',
@@ -63,7 +63,7 @@ export class SignaturesService {
     let apiResponse: APIResponse = await this.http
       .put<APIResponse>(`${APIPath}/signatures`, sig, { headers: headers }).toPromise()
 
-    console.log('Signatures Service: PUT Signature response: ', apiResponse)
+    // console.log('Signatures Service: PUT Signature response: ', apiResponse)
 
     return {
       hasError: apiResponse.status !== 'OK',
@@ -76,7 +76,7 @@ export class SignaturesService {
     let apiResponse: APIResponse = await this.http
       .delete<APIResponse>(`${APIPath}/signatures/${id}`).toPromise()
 
-    console.log('Signatures Service: DELETE Signature response: ', apiResponse)
+    // console.log('Signatures Service: DELETE Signature response: ', apiResponse)
 
     return {
       hasError: apiResponse.status !== 'OK',

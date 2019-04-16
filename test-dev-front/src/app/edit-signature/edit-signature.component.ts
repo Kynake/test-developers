@@ -39,10 +39,6 @@ export class EditSignatureComponent implements OnInit {
 
   //Métodos
   ngOnInit() {
-    console.log(this.signature)
-    console.log(this.id_document)
-    console.log(this.order)
-
     this.isLoading = true
 
     const sig = this.signature
@@ -66,7 +62,6 @@ export class EditSignatureComponent implements OnInit {
 
   //POST Method
   async postSignature() {
-    console.log('POST API INFO EVENT')
     this.isLoading = true
 
     let sig: Signature = {
@@ -91,7 +86,6 @@ export class EditSignatureComponent implements OnInit {
 
   //PUT Method
   async putSignature() {
-    console.log('PUT API INFO EVENT')
     this.isLoading = true
 
     let sig: Signature = {
@@ -117,7 +111,6 @@ export class EditSignatureComponent implements OnInit {
 
   //DELETE Method
   async deleteSignature() {
-    console.log('DELETE API INFO EVENT')
     this.isLoading = true
 
     if(this.signature) { //DELETE on Backend

@@ -20,7 +20,7 @@ export class DocumentsService {
     let apiResponse: APIResponse = await this.http
       .get<APIResponse>(`${APIPath}/documents`).toPromise()
 
-    console.log('Documents Service: GET Documents response: ', apiResponse)
+    // console.log('Documents Service: GET Documents response: ', apiResponse)
 
     return {
       hasError: apiResponse.status !== 'OK',
@@ -32,7 +32,7 @@ export class DocumentsService {
     let apiResponse: APIResponse = await this.http
       .get<APIResponse>(`${APIPath}/documents/${id}`).toPromise()
 
-    console.log('Documents Service: GET Document by ID response: ', apiResponse)
+    // console.log('Documents Service: GET Document by ID response: ', apiResponse)
 
     return {
       hasError: apiResponse.status !== 'OK',

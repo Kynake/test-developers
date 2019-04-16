@@ -37,7 +37,6 @@ export class DocumentDetailComponent implements OnInit {
     this.isLoading = true
 
     this.id = this.route.snapshot.params.id
-    console.log(this.id)
 
     let response: Response = await this.document.getDocument(this.id)
 
@@ -104,10 +103,5 @@ export class DocumentDetailComponent implements OnInit {
 
   unsetIsEditing() {
     this.isEditing--
-  }
-
-
-  testFunc() {
-    console.log(this.isEditing)
   }
 }
