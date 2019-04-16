@@ -121,7 +121,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"God Magava\",\n\t\"issuer\": \"DnD\",\n\t\"timestamp\": \"2019-04-10\",\n\t\"ordering\": 10,\n\t\"id_document\": 1\n}"
+							"raw": "{\n\t\"name\": \"God Magava\",\n\t\"issuer\": \"DnD\",\n\t\"timestamp\": \"2019-04-10\",\n\t\"ordering\": 3,\n\t\"id_document\": 1\n}"
 						},
 						"url": {
 							"raw": "localhost:5500/api/signatures",
