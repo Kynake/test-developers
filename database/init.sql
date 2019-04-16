@@ -10,7 +10,7 @@ CREATE TABLE signatures(
   name           TEXT UNIQUE NOT NULL,
   issuer         TEXT        NOT NULL,
   ordering       INT         NOT NULL,
-  timestamp      TIMESTAMP   NOT NULL,
+  timestamp      TIMESTAMP WITH TIME ZONE NOT NULL,
   id_document    INT NOT NULL REFERENCES documents(ID)
 );
 
