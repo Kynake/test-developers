@@ -14,3 +14,8 @@ div .info {
   width: 500px;
   max-width: 500px;
 }
+
+button {
+  width: 80px;
+  height: 30px;
+}
