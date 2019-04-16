@@ -1,21 +1,27 @@
 <div class="row">
-  <div class="col-1">BAR</div>
+  <!-- <div class="col-1">BAR</div> -->
   <div class="col-7" *ngIf="!isLoading">
     <h2>{{doc.name}}</h2>
-
+    <button (click)="testFunc()">X</button>
     <pre>
       {{doc.content}}
     </pre>
+    {{doc.Signatures | json}}
   </div>
-  <div class="col-3" *ngIf="!isLoading">
+  <div class="col-5" *ngIf="!isLoading">
     <div class="row" *ngFor="let sig of doc.Signatures, index as i" style="border: 1px solid black">
       <app-edit-signature
         [signature]="sig"
         [id_document]="doc.id"
-        [order]="i+1">
+        [order]="setOrderingValue(i)"
+        (onCreate)="appendToList($event)"
+        (onUpdate)="updateExisting($event)"
+        (onDelete)="clearSignatureFromList($event)"
+        (onCancel)="unsetIsEditing()"
+        (onEditing)="setIsEditing()">
       </app-edit-signature>
     </div>
-    <button (click)="createNewSignature()">NOVO</button>
+    <button (click)="createNewSignature()" [disabled]="isEditing !== 0">+</button>
   </div>
 </div>
 
