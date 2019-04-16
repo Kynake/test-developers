@@ -1,0 +1,11 @@
+table, th, td {
+  border: 1px solid black;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+/* div {
+  border: 1px solid #000000;
+} */

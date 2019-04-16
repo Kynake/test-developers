@@ -1,0 +1,29 @@
+<div class="row" *ngIf="!isLoading">
+  <div class="col-10" *ngIf="!isEditing">
+    <p>Assinado por:</p>
+    <h4>{{signature?.name}}</h4>
+    <hr />
+    <p>Em: {{signature?.timestamp}}</p>
+    <hr />
+    <p>Certificado emitido por:</p>
+    <p>{{signature?.issuer}}</p>
+  </div>
+
+  <div class="col-10" *ngIf="isEditing">
+    {{editForm.value | json}}
+    <form novalidate [formGroup]="editForm">
+      <p>Assinado por:</p>
+      <h4><input formControlName="name" type="text"></h4>
+      <p>Em: <input formControlName="timestamp" type="text"></p>
+      <p>Certificado emitido por:</p>
+      <p><input formControlName="issuer" type="text"></p>
+    </form>
+  </div>
+
+  <div class="col-2">
+    <button (click)="toggleEdit()" [disabled]="isEditing && !editForm.valid">E</button>
+    <button>D</button>
+  </div>
+</div>
+
+<p *ngIf="isLoading">Carregando...</p>

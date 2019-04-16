@@ -1,0 +1,12 @@
+<div class="list">
+  <table *ngIf="!isLoading && !hasError">
+    <tr *ngFor="let doc of documentsList" ><td>
+
+      <p><a routerLink="/documents/{{doc.id}}">{{doc.name}}</a></p>
+
+    </td></tr>
+  </table>
+
+  <p *ngIf="isLoading && !hasError">Carregando...</p>
+  <p *ngIf="!isLoading && hasError">{{errorMessage}}</p>
+</div>

@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-1">BAR</div>
+  <div class="col-7" *ngIf="!isLoading">
+    <h2>{{doc.name}}</h2>
+
+    <pre>
+      {{doc.content}}
+    </pre>
+  </div>
+  <div class="col-3" *ngIf="!isLoading">
+    <div class="row" *ngFor="let sig of doc.Signatures, index as i" style="border: 1px solid black">
+      <app-edit-signature
+        [signature]="sig"
+        [id_document]="doc.id"
+        [order]="i+1">
+      </app-edit-signature>
+    </div>
+    <button (click)="createNewSignature()">NOVO</button>
+  </div>
+</div>
+
+<p *ngIf="isLoading && !hasError">Carregando...</p>
+<p *ngIf="!isLoading && hasError">{{errorMessage}}</p>
