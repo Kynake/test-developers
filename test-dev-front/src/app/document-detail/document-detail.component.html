@@ -1,6 +1,7 @@
 <div class="row">
   <!-- <div class="col-1">BAR</div> -->
   <div class="col-7" *ngIf="!isLoading">
+    <p><a routerLink="/documents">Voltar</a></p>
     <h2>{{doc.name}}</h2>
     <pre>
       {{doc.content}}

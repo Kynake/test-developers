@@ -1,3 +1,16 @@
-/* div {
-  border: 1px solid #000000;
-} */
+div .actions {
+  margin: 10px;
+
+  height: 248px;
+  max-height: 248px;
+}
+
+div .info {
+  margin: 10px;
+
+  height: 248px;
+  max-height: 248px;
+
+  width: 500px;
+  max-width: 500px;
+}

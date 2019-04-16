@@ -1,5 +1,5 @@
 <div class="row" *ngIf="!isLoading">
-  <div class="col-10" *ngIf="!isEditing">
+  <div class="col-10 info" *ngIf="!isEditing">
     <p>Assinado por:</p>
     <h4>{{signature?.name}}</h4>
     <hr />
@@ -9,7 +9,7 @@
     <p>{{signature?.issuer}}</p>
   </div>
 
-  <div class="col-10" *ngIf="isEditing">
+  <div class="col-10 info" *ngIf="isEditing">
     <!-- {{editForm.value | json}} -->
     <form novalidate [formGroup]="editForm">
       <p>Assinado por:</p>
@@ -22,9 +22,13 @@
     </form>
   </div>
 
-  <div class="col-2">
-    <button (click)="toggleEdit()" [disabled]="isEditing && !editForm.valid">E</button>
-    <button (click)="deleteSignature()">D</button>
+  <div class="col-2 actions">
+    <button (click)="toggleEdit()" *ngIf="!isEditing">Editar</button>
+    <button (click)="toggleEdit()" *ngIf="isEditing && editForm.pristine && signature" [disabled]="isEditing && !editForm.valid">Cancelar</button>
+    <button (click)="toggleEdit()" *ngIf="isEditing && (editForm.dirty || !signature)" [disabled]="isEditing && !editForm.valid">Salvar</button>
+
+    <button (click)="deleteSignature()" *ngIf="signature">Excluir</button>
+    <button (click)="deleteSignature()" *ngIf="!signature">Cancelar</button>
   </div>
 </div>
 
