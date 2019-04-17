@@ -30,18 +30,18 @@ services:
     networks: 
       - devtest-network
     
-  # frontend:
-  #   container_name: frontend
-  #   build:
-  #     context: test-dev-front
-  #     dockerfile: Dockerfile
-  #   image: frontend:latest
-  #   depends_on:
-  #     - "backend"
-  #   ports:
-  #     - "80:80"
-  #   networks: 
-  #     - devtest-network
+  frontend:
+    container_name: frontend
+    build:
+      context: test-dev-front
+      dockerfile: Dockerfile
+    image: frontend:latest
+    depends_on:
+      - "backend"
+    ports:
+      - "80:80"
+    networks: 
+      - devtest-network
 
 networks: 
   devtest-network:
